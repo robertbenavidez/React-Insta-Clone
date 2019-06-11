@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
+import PostContainer from './components/PostContainer/PostContainer';
+import dummyData from './dummy-data';
 
-function App() {
-  return (
-    <div className="App">
-      <SearchBar />
-    </div>
-  );
+class App extends Component  {
+  constructor() {
+    super();
+    this.state = {
+      posts: dummyData
+    }
+  }
+  render() {
+    console.log(this.state)
+    return (
+     <div className="App">
+        <SearchBar />
+        <PostContainer posts={this.state.posts} />
+      </div>
+    );
+  }
 }
-
+  
 export default App;
